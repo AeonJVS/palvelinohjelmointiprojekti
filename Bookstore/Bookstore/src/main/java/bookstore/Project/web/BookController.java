@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import bookstore.Project.domain.Book;
-import exercise.Project.domain.Friend;
-
 @Controller
 public class BookController {
 
