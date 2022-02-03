@@ -1,0 +1,4 @@
+# palvelinohjelmointiprojekti
+Palvelinohjelmointikurssin projekti
+
+Bookstore-projekti Haaga-Helian Palvelinohjelmointikurssia varten.
