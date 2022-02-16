@@ -10,7 +10,6 @@ import javax.persistence.Table;
 public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	
 	private Long id;
 	private String title;
 	private String author;
@@ -20,6 +19,7 @@ public class Book {
 	
 	public Book() {
 		super();
+		this.id = null;
 		this.title = null;
 		this.author = null;
 		this.year = 0;
@@ -35,7 +35,17 @@ public class Book {
 		this.isbn = isbn;
 		this.price = price;
 	}
-
+	
+	public Book(Long id, String title, String author, int year, String isbn, int price) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.author = author;
+		this.year = year;
+		this.isbn = isbn;
+		this.price = price;
+	}
+	 
 	public Long getId() {
 		return id;
 	}
