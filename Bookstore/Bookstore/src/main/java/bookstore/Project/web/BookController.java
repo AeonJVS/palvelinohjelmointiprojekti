@@ -22,8 +22,13 @@ public class BookController {
 
 	@RequestMapping(value = "/index")
 	public String index(Model model) {
-		model.addAttribute("books", repository.findAll());
 		return "index";
+	}
+	
+	@RequestMapping(value = "/booklist", method = RequestMethod.GET)
+	public String listBooks(Model model) {
+		model.addAttribute("books", repository.findAll());
+		return "booklist";
 	}
 	
     @RequestMapping(value = "/add")
