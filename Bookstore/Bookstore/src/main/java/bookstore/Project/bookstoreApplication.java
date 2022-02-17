@@ -28,13 +28,15 @@ public class BookstoreApplication {
 	public CommandLineRunner bookDemo(BookRepository bookrepository, CategoryRepository categoryrepository) {
 		return (args) -> {
 			log.info("Saving categories...");
-			Category category1 = new Category("Comic");
+			Category category1 = new Category("Dystopia");
 			categoryrepository.save(category1);
 			Category category2 = new Category("Scifi");
 			categoryrepository.save(category2);
 			
 			log.info("save book");
-			bookrepository.save(new Book("1984", "George Orwell", 1949, "9780451524935", 20));
+			bookrepository.save(new Book("1984", "George Orwell", 1949, "9780451524935", 20, category1));
+			bookrepository.save(new Book("Animal Farm", "George Orwell", 1945, "9780451526342", 5, category1));
+			bookrepository.save(new Book("Do Androids Dream of Electric Sheep?", "Philip K. Dick", 1968, "9781780220383", 40, category2));
 			
 			log.info("fetch all books");
 			for (Book book: bookrepository.findAll()) {
