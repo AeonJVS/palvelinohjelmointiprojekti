@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Bean;
 
 import bookstore.Project.domain.Book;
 import bookstore.Project.domain.BookRepository;
+import bookstore.Project.domain.Category;
+import bookstore.Project.domain.CategoryRepository;
 import bookstore.Project.BookstoreApplication;
 import bookstore.Project.domain.Book;
 
@@ -23,8 +25,14 @@ public class BookstoreApplication {
 	}
 
 	@Bean
-	public CommandLineRunner bookDemo(BookRepository bookrepository) {
+	public CommandLineRunner bookDemo(BookRepository bookrepository, CategoryRepository categoryrepository) {
 		return (args) -> {
+			log.info("Saving categories...");
+			Category category1 = new Category("Comic");
+			categoryrepository.save(category1);
+			Category category2 = new Category("Scifi");
+			categoryrepository.save(category2);
+			
 			log.info("save book");
 			bookrepository.save(new Book("1984", "George Orwell", 1949, "9780451524935", 20));
 			
