@@ -34,6 +34,8 @@ public class BookstoreApplication {
 			categoryrepository.save(category1);
 			Category category2 = new Category("Scifi");
 			categoryrepository.save(category2);
+			Category category3 = new Category("Philosophy");
+			categoryrepository.save(category3);
 			
 			log.info("save book");
 			bookrepository.save(new Book("1984", "George Orwell", 1949, "9780451524935", 20, category1));
