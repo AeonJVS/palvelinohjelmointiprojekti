@@ -3,6 +3,7 @@ package bookstore.Project.tests;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -41,11 +42,10 @@ public class BookRepositoryTest {
     	
     	// search for the created book by its id
       	Long bookId = book.getId();
-    	repository.findById(bookId);
-    	assertThat(bookId).isNotNull();
+    	assertThat(repository.findById(bookId)).isNotNull();
     	
     	// delete the same book after successful previous tests
     	repository.deleteById(bookId);
-    	assertThat(bookId).isNull();
+    	assertThat(repository.findById(bookId).isEmpty());
     }
 }
